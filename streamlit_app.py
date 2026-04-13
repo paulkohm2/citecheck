@@ -82,6 +82,10 @@ if by_year:
 
 st.subheader("Citing Cases — most recent first")
 
+if not cases:
+      86 +    st.info("No citing cases found.")
+      87 +    st.stop()
+
 df = pd.DataFrame(cases)[["date_filed", "case_name", "court", "cite_count", "url"]]
 df["cite_count"] = df["cite_count"].fillna(0).astype(int)
 
